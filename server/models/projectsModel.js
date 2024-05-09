@@ -19,11 +19,6 @@ const ProjectImagesSchema = new mongoose.Schema({
   },
 });
 
-ProjectImagesSchema.pre(/^find/, function (next) {
-  this.select("-_id");
-  next();
-});
-
 const ProjectSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -49,12 +44,17 @@ const ProjectSchema = new mongoose.Schema({
   },
 
   images: [ProjectImagesSchema],
+  created_at: {
+    type: Date,
+    default: new Date().toUTCString(),
+  },
 });
 
 ProjectSchema.index({ title: 1 });
 
 ProjectSchema.pre(/^find/, function (next) {
   this.select(["-__v"]);
+  this.sort({ created_at: -1 });
   next();
 });
 
