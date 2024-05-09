@@ -12,6 +12,16 @@ import Contact from "./pages/Contact.jsx";
 import { Provider } from "react-redux";
 import STORE from "./redux/store.js";
 import { setTabIndex } from "./redux/tabSlice.js";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+    },
+  },
+});
 
 // Create a browser router with routes configuration
 const router = createBrowserRouter([
@@ -60,10 +70,13 @@ const router = createBrowserRouter([
 // Render the application root component within React StrictMode
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider store={STORE}>
-      <RouterProvider router={router}>
-        <App />
-      </RouterProvider>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Provider store={STORE}>
+        <RouterProvider router={router}>
+          <App />
+        </RouterProvider>
+      </Provider>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   </React.StrictMode>
 );

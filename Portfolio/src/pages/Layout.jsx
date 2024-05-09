@@ -10,7 +10,6 @@ import Toggle from "../components/Toggle";
 import HeaderNavigationTabs from "../components/HeaderNavigation";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import Background from "../components/Background";
 
 // Main application component
 function MyApp() {
@@ -52,7 +51,6 @@ function MyApp() {
       <section className="z-40">
         <Outlet />
       </section>
-      <Background />
     </Box>
   );
 }

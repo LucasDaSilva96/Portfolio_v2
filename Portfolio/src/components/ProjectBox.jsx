@@ -1,9 +1,11 @@
 import ReactImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Button, Link, Stack } from "@mui/material";
+import CurrentProjectLabel from "./CurrentProjectLabel";
 function ProjectBox({ projectObj }) {
   return (
-    <article className="py-2 flex gap-4 flex-wrap  px-2 rounded-md justify-center backdrop-blur-sm antialiased">
+    <article className="py-2 flex gap-4 flex-wrap  px-2 rounded-md justify-center backdrop-blur-sm antialiased relative">
+      {projectObj.current && <CurrentProjectLabel />}
       <div className=" min-w-[400px] max-w-[580px]">
         <ReactImageGallery
           loading="lazy"
@@ -18,7 +20,7 @@ function ProjectBox({ projectObj }) {
       </div>
       <aside className="max-w-[400px] relative pb-8 overflow-y-auto text-center leading-relaxed">
         <h1 className="text-xl font-semibold line-clamp-3">
-          GameHub E-Shop with Game Collection, Search, and Fake Checkout
+          {projectObj.title}
         </h1>
         <div className="max-h-[200px] pb-8 overflow-y-auto">
           <p className="tracking-wide ">{projectObj.description}</p>

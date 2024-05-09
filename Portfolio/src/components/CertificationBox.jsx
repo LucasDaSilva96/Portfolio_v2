@@ -20,9 +20,13 @@ function CertificationBox({ certificationObj }) {
           <span className="">Instructor: </span>
           {certificationObj.instructor}
         </p>
+        <span className=" text-center text-lg underline">
+          Organization: {certificationObj.organization}{" "}
+        </span>
+
         <ul className=" leading-loose max-h-[240px] overflow-y-auto">
           {certificationObj.covered.map((el, i) => (
-            <li key={i}>{"• " + el}</li>
+            <li key={i}>{"• " + el.text}</li>
           ))}
         </ul>
       </div>
