@@ -2,6 +2,7 @@ export const projects = {
   just_react: {
     description:
       "Embrace the power of React-Redux, a dynamic combination that enhances the performance and state management of our Just React webpage. Immerse yourself in a seamless, responsive, and interactive shopping experience driven by the latest in front-end development.",
+    current: false,
     demo: "https://justreactwithstyle.netlify.app/",
     code: "https://github.com/LucasDaSilva96/Just-React",
     images: [
@@ -34,6 +35,7 @@ export const projects = {
   game_hub: {
     description:
       "This React-based E-Shop for games, created as part of an assignment from The Odin Project, seamlessly integrates several key features to deliver an immersive gaming experience. The project showcases a combination of React Router DOM, React Query/Tanstack, and the RAWG API to provide users with a dynamic and engaging platform.",
+    current: false,
     demo: "https://gamehub-by-lucas.netlify.app/",
     code: "https://github.com/LucasDaSilva96/GameHub",
     images: [
