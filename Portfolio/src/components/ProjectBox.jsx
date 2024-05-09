@@ -34,14 +34,16 @@ function ProjectBox({ projectObj }) {
             justifyContent: "space-evenly",
           }}
         >
-          <Link
-            href={projectObj.demo}
-            target="_blank"
-            color="inherit"
-            rel="noopener"
-          >
-            <Button variant="contained">Demo</Button>
-          </Link>
+          {projectObj.demo && (
+            <Link
+              href={projectObj.demo}
+              target="_blank"
+              color="inherit"
+              rel="noopener"
+            >
+              <Button variant="contained">Demo</Button>
+            </Link>
+          )}
 
           <Link
             href={projectObj.code}
