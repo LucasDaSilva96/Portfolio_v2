@@ -19,6 +19,11 @@ const ProjectImagesSchema = new mongoose.Schema({
   },
 });
 
+ProjectImagesSchema.pre(/^find/, function (next) {
+  this.select("-_id");
+  next();
+});
+
 const ProjectSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -49,7 +54,7 @@ const ProjectSchema = new mongoose.Schema({
 ProjectSchema.index({ title: 1 });
 
 ProjectSchema.pre(/^find/, function (next) {
-  this.select(["-_v"]);
+  this.select(["-__v"]);
   next();
 });
 
