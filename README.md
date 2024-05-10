@@ -27,6 +27,10 @@ Feel free to explore the different sections of the portfolio to learn more about
 ## Bash Section
 
 ```bash
+**Note**: Before running this project locally, please ensure you have set up your own MongoDB Atlas connection. You can do this by signing up for a MongoDB Atlas account and configuring the connection string in the appropriate environment variables or configuration files.
+```
+
+```bash
 # Clone
 git clone https://github.com/LucasDaSilva96/Portfolio_v2.git
 
