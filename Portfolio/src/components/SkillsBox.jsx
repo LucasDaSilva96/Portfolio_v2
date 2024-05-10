@@ -13,6 +13,10 @@ import LineStyleIcon from "@mui/icons-material/LineStyle";
 import AccessibilityIcon from "@mui/icons-material/Accessibility";
 import SourceIcon from "@mui/icons-material/Source";
 import CssIcon from "@mui/icons-material/Css";
+
+// In this component, SkillsBox, the function getIconComponent returns the appropriate MUI icon component based on the iconTitle provided.
+// The component renders a box containing an icon, a title, and text based on the received props. The appearance of the box is determined by the type prop,
+// with different heights and alignments based on whether it's for coding skills, soft skills, or other purposes.
 function SkillsBox({ obj, type }) {
   const theme = useSelector(getTheme);
   // Get the icon component based on the iconTitle

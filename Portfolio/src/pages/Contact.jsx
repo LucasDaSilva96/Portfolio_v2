@@ -6,6 +6,7 @@ import { useSpring, animated } from "@react-spring/web";
 import { easings } from "@react-spring/web";
 
 function Contact() {
+  // Animation spring configuration
   const animation = useSpring({
     from: { x: 1000 },
     to: { x: 0 },
@@ -27,6 +28,7 @@ function Contact() {
         padding: "50px 0",
       }}
     >
+      {/* Animated contact section */}
       <animated.div
         style={animation}
         className="flex flex-col gap-8 items-center justify-center"

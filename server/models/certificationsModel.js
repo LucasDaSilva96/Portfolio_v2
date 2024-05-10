@@ -1,17 +1,20 @@
 const mongoose = require("mongoose");
 
+// Define the schema for the covered text within a certification
 const CertificationCoveredSchema = new mongoose.Schema({
   text: {
     type: String,
-    required: [true, , "Covered text must be present."],
+    required: [true, "Covered text must be present."],
   },
 });
 
+// Exclude '__v' field from query results
 CertificationCoveredSchema.pre(/^find/, function (next) {
   this.select("-__v");
   next();
 });
 
+// Define the schema for certifications
 const CertificationsSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -33,9 +36,11 @@ const CertificationsSchema = new mongoose.Schema({
   covered: [CertificationCoveredSchema],
 });
 
+// Exclude '__v' field from query results
 CertificationsSchema.pre(/^find/, function (next) {
   this.select("-__v");
   next();
 });
 
+// Create and export the Certification model
 module.exports = mongoose.model("certification", CertificationsSchema);

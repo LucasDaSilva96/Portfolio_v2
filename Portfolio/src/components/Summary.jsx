@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import LazyImage from "./LazyImage";
-
+// In this component, Summary, I adjusted the width and height of the article element to ensure consistency in sizing.
+// The width and height are specified using [225px] and [700px] respectively.
 function Summary() {
   return (
     <Box

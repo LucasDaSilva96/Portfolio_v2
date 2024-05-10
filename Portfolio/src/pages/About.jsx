@@ -16,6 +16,7 @@ function About() {
   const dispatch = useDispatch();
   const selectedIndexCategory = useSelector(getAboutTrackerIndex);
 
+  // Animation spring configuration
   const animationX = useSpring({
     from: { x: 1000 },
     to: { x: 0 },
@@ -27,6 +28,7 @@ function About() {
     },
   });
 
+  // Function to handle changing the selected category
   const handleTracker = (node_index) => {
     dispatch(setAboutTrackerIndex(node_index));
   };
@@ -46,6 +48,7 @@ function About() {
         gap: "10px",
       }}
     >
+      {/* Navigation buttons */}
       <Stack
         direction="row"
         spacing={2}
@@ -54,6 +57,7 @@ function About() {
           flexWrap: "wrap",
         }}
       >
+        {/* Render selected category based on selectedIndexCategory */}
         <Button
           className=" shadow-xl backdrop-blur-md"
           variant={selectedIndexCategory === 0 ? "contained" : "outlined"}

@@ -1,11 +1,16 @@
 import { useSpring, animated } from "@react-spring/web";
 
+// This component uses the useSpring hook from @react-spring/web to animate the profile image and background image. The profileSpring and backgroundSpring
+// variables define the animation properties for each image. The profile image moves from an initial position to a final position, while the background image
+// moves from an initial position to another. The animated.img components render the images with the animated styles applied.
 function ProfileImageContainer() {
+  // Animation spring for the profile image
   const profileSpring = useSpring({
     from: { y: -1000 },
     to: { y: -52 },
   });
 
+  // Animation spring for the background image
   const backgroundSpring = useSpring({
     from: { y: -1000 },
     to: { y: 0 },

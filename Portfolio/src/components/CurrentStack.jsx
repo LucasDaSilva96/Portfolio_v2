@@ -1,6 +1,8 @@
 import { currentStack } from "../data/skillsData";
 import StackBox from "./StackBox";
 
+// This component renders different categories of current technology stacks, such as FrontEnd, React, UX/UI, DevOps, and BackEnd.
+// It maps through the respective arrays of stacks for each category from the currentStack data and renders a StackBox component for each stack within the category.
 function CurrentStack() {
   return (
     <div className="w-full max-h-[100%] overflow-y-auto grid grid-flow-row auto-rows-max gap-4 justify-items-start">

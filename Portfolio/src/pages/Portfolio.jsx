@@ -6,8 +6,10 @@ import { easings, useSpring, animated } from "@react-spring/web";
 function Portfolio() {
   const queryClient = useQueryClient();
 
+  // Retrieve projects data from the query client
   const projects = queryClient.getQueryData("projects");
 
+  // Animation spring
   const animation = useSpring({
     from: { x: 1000 },
     to: { x: 0 },
@@ -19,6 +21,7 @@ function Portfolio() {
     },
   });
 
+  // If projects data is not available, display a message
   if (!projects)
     return (
       <Container
@@ -37,6 +40,7 @@ function Portfolio() {
       </Container>
     );
 
+  // Render the portfolio with the fetched projects
   return (
     <Container
       maxWidth="lg"

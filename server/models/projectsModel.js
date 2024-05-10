@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Define the schema for project images
 const ProjectImagesSchema = new mongoose.Schema({
   original: {
     type: String,
@@ -19,6 +20,7 @@ const ProjectImagesSchema = new mongoose.Schema({
   },
 });
 
+// Define the schema for projects
 const ProjectSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -50,14 +52,15 @@ const ProjectSchema = new mongoose.Schema({
   },
 });
 
+// Create index on the 'title' field
 ProjectSchema.index({ title: 1 });
 
+// Exclude '__v' field from query results, sort results by 'created_at' field in descending order
 ProjectSchema.pre(/^find/, function (next) {
   this.select(["-__v"]);
   this.sort({ created_at: -1 });
   next();
 });
 
+// Create and export the Project model
 module.exports = mongoose.model("project", ProjectSchema);
-
-("/public/projectsImg/");

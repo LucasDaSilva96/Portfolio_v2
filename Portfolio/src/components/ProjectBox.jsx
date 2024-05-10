@@ -2,6 +2,11 @@ import ReactImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Button, Link, Stack } from "@mui/material";
 import CurrentProjectLabel from "./CurrentProjectLabel";
+
+// This component renders a project box with an image gallery, project information, and buttons for demo and code links. If the project is current,
+// it displays a CurrentProjectLabel. The ReactImageGallery component renders the image gallery with the provided images. Project information, including title and
+// description, is displayed in a separate aside element.
+// Buttons for demo and code links are rendered using MUI Button components, wrapped in Link components to open links in new tabs.
 function ProjectBox({ projectObj }) {
   return (
     <article className="py-2 flex gap-4 flex-wrap  px-2 rounded-md justify-center backdrop-blur-sm antialiased relative">

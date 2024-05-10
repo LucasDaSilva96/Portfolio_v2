@@ -14,9 +14,10 @@ app.use(
   })
 );
 
+// Enable CORS
 app.use(cors());
 
-// ** Routes
+//  Routes
 app.use("/api/v1/project", projectsRoute);
 app.use("/api/v1/certification", certificationsRoute);
 

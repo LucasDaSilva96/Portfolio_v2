@@ -3,10 +3,13 @@ import { useSelector } from "react-redux";
 import { useTypewriter } from "react-simple-typewriter";
 import { getTheme } from "../redux/themeSlice";
 
+// This component renders the main heading and a subheading with typewriter effects. The main heading displays a series of phrases using the useTypewriter hook, creating a typing animation effect. The subheading displays the phrase "Web developer"
+// with a similar typing effect. The appearance of the heading depends on the theme selected by the user.
 function HomeHeading() {
   const [typing, setTyping] = useState(false);
   const theme = useSelector(getTheme);
 
+  // Typewriter effect for the main heading
   const [text] = useTypewriter({
     words: [
       "Hello world!",
@@ -27,6 +30,7 @@ function HomeHeading() {
     onLoopDone: () => setTyping(false),
   });
 
+  // Typewriter effect for the subheading
   const [h1] = useTypewriter({
     words: ["Web developer"],
     loop: 1,

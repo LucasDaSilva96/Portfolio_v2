@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getTheme, toggleTheme } from "../redux/themeSlice";
 
+// This component, Toggle, remains unchanged. It toggles between light and dark themes based on the current theme state stored in Redux.
 function Toggle() {
   const dispatch = useDispatch();
   const theme = useSelector(getTheme);
