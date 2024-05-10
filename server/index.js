@@ -15,7 +15,11 @@ app.use(
 );
 
 // Enable CORS
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 //  Routes
 app.use("/api/v1/project", projectsRoute);

@@ -4,7 +4,8 @@ const app = require("./index");
 const mongoose = require("mongoose");
 
 // Retrieve database connection URI from environment variables
-const DB = process.env.DB;
+// TODO Change to process.env.DB if Admin wants to post and not only read.
+const DB = process.env.RENDER_DB;
 
 // Connect to MongoDB database
 mongoose.connect(DB).then(() => console.log("DB successfully connected"));
