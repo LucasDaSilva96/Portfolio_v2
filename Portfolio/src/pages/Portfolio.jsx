@@ -1,36 +1,25 @@
 import { Container } from "@mui/material";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ProjectBox from "../components/ProjectBox";
-// import { projects } from "../data/projectsData";
-import { useSpring, animated } from "@react-spring/web";
-import { easings } from "@react-spring/web";
-import { useQuery } from "react-query";
-import Loader from "../components/Loader";
-import { useState } from "react";
-
+import { useQueryClient } from "react-query";
+import { easings, useSpring, animated } from "@react-spring/web";
 function Portfolio() {
-  const { isLoading, data: projects } = useQuery(["projects"]);
+  const queryClient = useQueryClient();
 
-  const [customLoader, setCustomLoader] = useState(true);
+  const projects = queryClient.getQueryData("projects");
 
   const animation = useSpring({
-    from: { x: "200dvw" },
-    to: { x: "0dvw" },
+    from: { x: 1000 },
+    to: { x: 0 },
     reset: true,
     config: {
       tension: 280,
       friction: 60,
-      easing: easings.steps(20),
+      easing: easings.steps(10),
     },
   });
 
-  setTimeout(() => {
-    setCustomLoader(false);
-  }, 2000);
-
-  if (customLoader) return <Loader />;
-
-  if (projects && !isLoading && !customLoader) {
+  if (!projects)
     return (
       <Container
         maxWidth="lg"
@@ -42,17 +31,33 @@ function Portfolio() {
           position: "relative",
         }}
       >
-        <animated.div
-          style={animation}
-          className="flex flex-col gap-4 items-center pb-16 overflow-y-auto shadow-xl rounded-md"
-        >
-          {projects.map((project, i) => (
-            <ProjectBox projectObj={project} key={i} />
-          ))}
-        </animated.div>
+        <h1 className="text-center text-2xl">
+          Failed to fetch projects from the server. Please try again
+        </h1>
       </Container>
     );
-  }
+
+  return (
+    <Container
+      maxWidth="lg"
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        padding: "20px",
+        maxHeight: "100dvh",
+        position: "relative",
+      }}
+    >
+      <animated.div
+        style={animation}
+        className="flex flex-col gap-4 items-center pb-16 overflow-y-auto shadow-xl rounded-md"
+      >
+        {projects?.map((project, i) => (
+          <ProjectBox projectObj={project} key={i} />
+        ))}
+      </animated.div>
+    </Container>
+  );
 }
 
 export default Portfolio;

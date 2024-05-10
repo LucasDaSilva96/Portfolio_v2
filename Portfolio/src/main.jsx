@@ -13,7 +13,8 @@ import { Provider } from "react-redux";
 import STORE from "./redux/store.js";
 import { setTabIndex } from "./redux/tabSlice.js";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+// import { ReactQueryDevtools } from "react-query/devtools";
+import { fetchAllCertifications, fetchAllProjects } from "./utils/fetchData.js";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -40,8 +41,12 @@ const router = createBrowserRouter([
       {
         path: "portfolio",
         element: <Portfolio />,
-        loader: () => {
+        loader: async () => {
           changeTabText("Portfolio");
+          await queryClient.prefetchQuery({
+            queryKey: ["projects"],
+            queryFn: async () => await fetchAllProjects(),
+          });
           return STORE.dispatch(setTabIndex(1));
         },
       },
@@ -49,8 +54,14 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
-        loader: () => {
+        loader: async () => {
           changeTabText("About");
+
+          await queryClient.prefetchQuery({
+            queryKey: ["certifications"],
+            queryFn: async () => await fetchAllCertifications(),
+          });
+
           return STORE.dispatch(setTabIndex(2));
         },
       },
@@ -76,7 +87,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <App />
         </RouterProvider>
       </Provider>
-      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>
 );

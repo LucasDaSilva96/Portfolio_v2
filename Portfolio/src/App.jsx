@@ -1,24 +1,8 @@
 import Layout from "./pages/Layout";
 import { Toaster } from "react-hot-toast";
-import { fetchAllCertifications, fetchAllProjects } from "./utils/fetchData";
-import { useQuery } from "react-query";
-import Loader from "./components/Loader";
 import Background from "./components/Background";
 
 function App() {
-  const { isPending: isPendingProjects, data: projectsData } = useQuery({
-    queryKey: ["projects"],
-    queryFn: async () => await fetchAllProjects(),
-  });
-
-  const { isPending: isPendingCertifications, data: certificationsData } =
-    useQuery({
-      queryKey: ["certifications"],
-      queryFn: async () => await fetchAllCertifications(),
-    });
-
-  if (isPendingProjects || isPendingCertifications) return <Loader />;
-
   return (
     <>
       <Toaster

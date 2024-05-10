@@ -16,7 +16,7 @@ function About() {
   const dispatch = useDispatch();
   const selectedIndexCategory = useSelector(getAboutTrackerIndex);
 
-  const animation_forward = useSpring({
+  const animationX = useSpring({
     from: { x: 1000 },
     to: { x: 0 },
     reset: true,
@@ -94,7 +94,7 @@ function About() {
 
       {selectedIndexCategory === 0 && (
         <animated.div
-          style={animation_forward}
+          style={animationX}
           className="max-w-full h-full overflow-y-auto flex items-center justify-center gap-4 flex-wrap pt-2 pb-[90px]  rounded-lg"
         >
           <Summary />
@@ -103,7 +103,7 @@ function About() {
 
       {selectedIndexCategory === 1 && (
         <animated.div
-          style={animation_forward}
+          style={animationX}
           className="max-w-full h-full overflow-y-auto flex items-center justify-center gap-4 flex-wrap pt-2 pb-[90px]  rounded-lg"
         >
           <CurrentStack />
@@ -112,7 +112,7 @@ function About() {
 
       {selectedIndexCategory === 2 && (
         <animated.div
-          style={animation_forward}
+          style={animationX}
           className="max-w-full h-full overflow-y-auto flex items-center justify-center gap-4 flex-wrap pt-2 pb-[90px]  rounded-lg"
         >
           {codingSkills.map((codingSkill, i) => (
@@ -123,7 +123,7 @@ function About() {
 
       {selectedIndexCategory === 3 && (
         <animated.div
-          style={animation_forward}
+          style={animationX}
           className="max-w-full h-full overflow-y-auto flex items-center justify-center gap-4 flex-wrap pt-2 pb-[90px]  rounded-lg"
         >
           {softSkills.map((softSkill, i) => (
@@ -134,7 +134,7 @@ function About() {
 
       {selectedIndexCategory === 4 && (
         <animated.div
-          style={animation_forward}
+          style={animationX}
           className="max-w-full h-full overflow-y-auto  pt-2 pb-[90px]  rounded-lg"
         >
           <Certifications />
