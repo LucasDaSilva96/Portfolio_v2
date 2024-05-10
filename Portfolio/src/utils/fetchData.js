@@ -1,10 +1,11 @@
 import toast from "react-hot-toast";
 import axios from "axios";
-const API_BASE_URL = process.env.VITE_BASE_API_URL;
 
 export const fetchAllProjects = async () => {
   try {
-    const res = await axios.get(`${API_BASE_URL}api/v1/project/`);
+    const res = await axios.get(
+      `https://portfolio-backend-vf6c.onrender.com/api/v1/project/`
+    );
 
     return res.data.data;
   } catch (e) {
@@ -15,7 +16,9 @@ export const fetchAllProjects = async () => {
 
 export const fetchAllCertifications = async () => {
   try {
-    const res = await axios.get(`${API_BASE_URL}api/v1/certification/`);
+    const res = await axios.get(
+      `https://portfolio-backend-vf6c.onrender.com/api/v1/certification/`
+    );
 
     return res.data.data;
   } catch (e) {
