@@ -27,7 +27,7 @@ const queryClient = new QueryClient({
 // Create a browser router with routes configuration
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: ".",
     element: <App />,
     children: [
       {
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "portfolio",
+        path: "/portfolio",
         element: <Portfolio />,
         loader: async () => {
           changeTabText("Portfolio");
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "about",
+        path: "/about",
         element: <About />,
         loader: async () => {
           changeTabText("About");
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "contact",
+        path: "/contact",
         element: <Contact />,
         loader: () => {
           changeTabText("Contact");
