@@ -13,7 +13,6 @@ import { Provider } from "react-redux";
 import STORE from "./redux/store.js";
 import { setTabIndex } from "./redux/tabSlice.js";
 import { QueryClient, QueryClientProvider } from "react-query";
-// import { ReactQueryDevtools } from "react-query/devtools";
 import { fetchAllCertifications, fetchAllProjects } from "./utils/fetchData.js";
 
 const queryClient = new QueryClient({
@@ -27,7 +26,7 @@ const queryClient = new QueryClient({
 // Create a browser router with routes configuration
 const router = createBrowserRouter([
   {
-    path: ".",
+    path: "/",
     element: <App />,
     children: [
       {
@@ -39,7 +38,7 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/portfolio",
+        path: "portfolio",
         element: <Portfolio />,
         loader: async () => {
           changeTabText("Portfolio");
@@ -52,7 +51,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/about",
+        path: "about",
         element: <About />,
         loader: async () => {
           changeTabText("About");
@@ -67,7 +66,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/contact",
+        path: "contact",
         element: <Contact />,
         loader: () => {
           changeTabText("Contact");
