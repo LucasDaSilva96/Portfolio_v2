@@ -37,6 +37,7 @@ function ProjectBox({ projectObj }) {
           sx={{
             flexWrap: "wrap",
             justifyContent: "space-evenly",
+            paddingTop: "10px",
           }}
         >
           {projectObj.demo && (
