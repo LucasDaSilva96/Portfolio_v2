@@ -6,6 +6,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  -webkit-text-stroke: unset;
 }
 
 *::-webkit-scrollbar {
@@ -27,6 +28,10 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   min-height: 100dvh;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 .container {
@@ -70,7 +75,6 @@ body {
   font-weight: 700;
   text-transform: capitalize;
   color: #ffffffad;
-  -webkit-text-stroke: 2px #2196f3;
   text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a,
     0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222,
     0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a,
@@ -84,12 +88,8 @@ body {
   font-weight: 700;
   text-transform: capitalize;
   color: #121212;
-  -webkit-text-stroke: 1px #ffffffe1;
-  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a,
-    0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222,
-    0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a,
-    0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212,
-    0 22px 30px rgba(255, 255, 255, 0.747);
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 1),
+    5px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 .txt__shadow {
