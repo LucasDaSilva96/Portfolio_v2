@@ -11,6 +11,7 @@ function LazyImage({ image }) {
       src={image} // use normal <img> attributes as props
       width="100%"
       effect="blur"
+      threshold={100}
     />
   );
 }
