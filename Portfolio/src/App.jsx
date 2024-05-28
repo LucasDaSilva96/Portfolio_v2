@@ -1,8 +1,11 @@
-import Layout from "./pages/Layout";
-import { Toaster } from "react-hot-toast";
-import Background from "./components/Background";
+import Layout from './pages/Layout';
+import { Toaster } from 'react-hot-toast';
+import Background from './components/Background';
+import ReactGA from 'react-ga';
 
 function App() {
+  ReactGA.initialize('G-WTX609RR6G');
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <>
       {/* 
@@ -13,31 +16,31 @@ function App() {
         Error notifications have a red background.
       */}
       <Toaster
-        position="top-center"
+        position='top-center'
         reverseOrder={false}
         gutter={8}
-        containerClassName=""
+        containerClassName=''
         containerStyle={{}}
         toastOptions={{
           // Define default options
-          className: "",
+          className: '',
           duration: 5000,
           style: {
-            background: "#2196f3",
-            color: "#fff",
+            background: '#2196f3',
+            color: '#fff',
           },
 
           // Default options for specific types
           success: {
             duration: 3000,
             theme: {
-              primary: "green",
-              secondary: "black",
+              primary: 'green',
+              secondary: 'black',
             },
           },
           error: {
             style: {
-              background: "red",
+              background: 'red',
             },
           },
         }}
