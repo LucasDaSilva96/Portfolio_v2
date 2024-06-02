@@ -43,7 +43,7 @@ const CertificationsSchema = new mongoose.Schema({
 // Exclude '__v' field from query results
 CertificationsSchema.pre(/^find/, function (next) {
   this.select('-__v');
-  this.sort({ date: 1 });
+  this.sort({ date: -1 });
   next();
 });
 
