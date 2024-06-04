@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /site.webmanifest
+Disallow: /favicon-32x32.png
+Disallow: /favicon-16x16.png
+Disallow: /apple-touch-icon.png
+Disallow: /safari-pinned-tab.svg
+Disallow: /src/
+Disallow: /utils/
+Disallow: /redux/
+
+# Block access to the Google Tag Manager script
+Disallow: /gtag/js?id=G-WTX609RR6G
+
+# Allow all other content
+Allow: /
