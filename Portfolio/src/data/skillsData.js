@@ -132,6 +132,10 @@ export const currentStack = {
       title: 'Html',
       photo: '/img/Tech_logo_html.png',
     },
+    {
+      title: 'NextJS',
+      photo: '/img/Tech_logo_NextJS.png',
+    },
   ],
   react: [
     {
